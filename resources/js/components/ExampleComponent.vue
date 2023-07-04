@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        Juliano é gay 1323 .
                     </div>
                 </div>
             </div>

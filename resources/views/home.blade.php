@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <example-component/>
+                    <home/>
                 </div>
             </div>
         </div>
