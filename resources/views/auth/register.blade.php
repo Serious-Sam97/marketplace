@@ -67,21 +67,20 @@
                         </div>
                     </div>
 
-                        <div class="row mb-3">
-                            <label for="Age" class="col-md-4 col-form-label text-md-end">{{ __('Age') }}</label>
-
-                            <div class="col-md-6">
-                              <input type="number" id="Age" name="Age" min="0" required autocomplete="Age">
-
-                              @error('password')
-                              <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                              </span>
-                          @enderror
-                      </div>
-                  </div>
-
-                            
+                    <div class="row mb-3">
+                        <label for="DateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+                    
+                        <div class="col-md-6">
+                            <input type="date" id="DateOfBirth" name="DateOfBirth" required autocomplete="DateOfBirth">
+                    
+                            @error('DateOfBirth')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                       
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

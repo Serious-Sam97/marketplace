@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Doctrine\DBAL\Driver\AbstractMySQLDriver;
+use Illuminate\Database\Eloquent\Model;
 
 class ProfileController extends Controller
 {
@@ -14,37 +14,24 @@ class ProfileController extends Controller
         $user = Auth::user();
         return view('profile', compact('user'));
     }
-}
 
- function showAge($id)
-{
-    $user = DB::table('users')->where('age', $age)->first();
+    public function savePhoto(Request $request)
+    {
+        // Verifique se uma imagem foi enviada
+        if ($request->hasFile('profile_image')) {
+            // Salve a imagem no diretório de destino
+            $path = $request->file('profile_image')->store('profile_images', 'public');
 
+            // Atualize o caminho da imagem no modelo do usuário
+            $user = Auth::user();
+            $user->profile_image_path = $path;
+            $user->save();
 
-    return view('profile.age', ['user' => $user]);
-}
-$connection = DB::connection();
-$schemaManager = $connection->getDoctrineSchemaManager();
-$tableColumns = $schemaManager->listTableColumns('users');
+            // Retorne uma resposta de sucesso ou redirecione para a página de perfil
+            return redirect()->back()->with('success', 'Foto de perfil enviada com sucesso.');
+        }
 
-if (isset($tableColumns['age'])) {
-    $columnDefinition = $tableColumns['age'];
-    $columnType = $columnDefinition->getType();
-    $columnTypeClass = get_class($columnType);
-    
-    if ($columnTypeClass === 'Doctrine\DBAL\Types\DateType') {
-        // A coluna 'age' é do tipo DateType
-        
-        // Obter a data de nascimento do usuário
-        $birthDate = // Obtenha a data de nascimento do usuário da tabela 'users'
-        
-        // Calcular a idade
-        $now = new \DateTime();
-        $age = $now->diff($birthDate)->y;
-        
-        // Exibir a idade
-        echo "A idade do usuário é: " . $age;
+        // Se não foi enviada uma imagem, retorne uma resposta de erro
+        return redirect()->back()->with('error', 'Nenhuma imagem foi enviada.');
     }
 }
-
-

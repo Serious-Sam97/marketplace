@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-use App\Http\Controllers\ProfileController;
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 
-Route::get('/profile/{id}/age', [ProfileController::class, 'showAge'])->name('profile.age');
+Route::post('/savephoto', [ProfileController::class, 'savephoto'])->name('savephoto');
+
+
+
+
 
