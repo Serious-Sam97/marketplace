@@ -24,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 
-Route::post('/savephoto', [ProfileController::class, 'savephoto'])->name('savephoto');
+
 
 
 

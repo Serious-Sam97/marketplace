@@ -95,25 +95,24 @@
     <div class="container">
         <h1>Perfil de {{ $user->name }}</h1>
 
-        <form action="{{ route('savephoto') }}" method="POST" enctype="multipart/form-data">
+        
             @csrf
             <div class="profile-section">
                 <div class="profile-picture">
                     <input type="file" id="profile-image" accept="image/*" name="profile_image">
-                    <label for="profile-image">
-                        <i class="fas fa-user-circle"></i> Selecionar Foto
+                    
+                        
                     </label>
                     @isset($perfil)
                         <img src="{{ asset($perfil->profile_image) }}" alt="Profile Image">
                     @endisset
                 </div>
                 <p>Email: {{ $user->email }}</p>
-                <p>Data de Nascimento: {{ $user->DateOfBirth }}</p>
+                <p>Data de Nascimento: {{ $user->date_of_birth }}</p>
             </div>
 
             <div class="button-wrapper">
-                <button type="submit" class="button">Enviar Foto</button>
-                <a href="{{ route('home') }}" class="button">Voltar para a Home</a>
+                <a href="{{ route('home') }}" class="button">Back to home</a>
             </div>
         </form>
     </div>

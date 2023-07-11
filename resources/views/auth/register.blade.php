@@ -71,9 +71,9 @@
                         <label for="DateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
                     
                         <div class="col-md-6">
-                            <input type="date" id="DateOfBirth" name="DateOfBirth" required autocomplete="DateOfBirth">
+                            <input type="date" id="date_of_birth" name="date_of_birth" required autocomplete="date_of_birth">
                     
-                            @error('DateOfBirth')
+                            @error('date_of_birth')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
