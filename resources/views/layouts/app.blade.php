@@ -23,9 +23,18 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                <router-link to="/" style="text-decoration: none;">
+                    <h3  class="navbar-brand" style="padding-bottom: 0 !important;">
+                        Marketplace
+                    </h3>
+                </router-link>
+                
+                 <router-link to="/products" style="text-decoration: none;">
+                    <h4 class="navbar-brand" style="padding-bottom: 0 !important; font-size: 1em !important;">
+                        Products
+                    </h4>
+                </router-link>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
