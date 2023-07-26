@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SendPhotoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/send-photo', [SendPhotoController::class, 'store']);
+Route::get('/get-user', [UserController::class, 'getUser']);
+
